@@ -1,0 +1,149 @@
+{
+  "id": "7a7bc600-f2f7-41dd-b343-37d352a5a617",
+  "version": "2.0",
+  "name": "AWSCreds",
+  "url": "https://introhivesso.awsapps.com/start#/",
+  "tests": [{
+    "id": "33f4532d-b15f-4cba-a695-1e09c446008a",
+    "name": "AWSwoGoogle",
+    "commands": [{
+      "id": "220d9bd0-0851-4c50-a0bc-11ae29f6610e",
+      "comment": "",
+      "command": "open",
+      "target": "/signin/v2/identifier?passive=1209600&continue=https%3A%2F%2Faccounts.google.com%2Fo%2Fsaml2%2Fidp%3Ffrom_login%3D1%26zt%3DChQ3X1RlY3pWbEI5Mk15R0ZaMDcyRxIfd3pPdEpYM0lNa1Fha013TWpqbVNUV1dTYUlQejJ4Yw%25E2%2588%2599AF-3PDcAAAAAYbt8kNBXFSps4_nhDMNgKCaW3Dy9EMyR%26as%3DwkmUNBZNQE21kpidpNPPN8oJH8DdfXju23PUBGSTv38&followup=https%3A%2F%2Faccounts.google.com%2Fo%2Fsaml2%2Fidp%3Ffrom_login%3D1%26zt%3DChQ3X1RlY3pWbEI5Mk15R0ZaMDcyRxIfd3pPdEpYM0lNa1Fha013TWpqbVNUV1dTYUlQejJ4Yw%25E2%2588%2599AF-3PDcAAAAAYbt8kNBXFSps4_nhDMNgKCaW3Dy9EMyR%26as%3DwkmUNBZNQE21kpidpNPPN8oJH8DdfXju23PUBGSTv38&ltmpl=popup&oauth=1&faa=1&sarp=1&scc=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2abc7223-87ca-4442-a950-db33db929faa",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1728x1010",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f5ca9567-379d-4e34-ad7e-7acaed11edab",
+      "comment": "",
+      "command": "type",
+      "target": "id=identifierId",
+      "targets": [
+        ["id=identifierId", "id"],
+        ["name=identifier", "name"],
+        ["css=#identifierId", "css:finder"],
+        ["xpath=//input[@id='identifierId']", "xpath:attributes"],
+        ["xpath=//div[@id='view_container']/div/div/div[2]/div/div/div/form/span/section/div/div/div/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "dat.nguyendinh@introhive.com"
+    }, {
+      "id": "2a332f39-4242-4428-b0a0-c390b3edfea9",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=identifierId",
+      "targets": [
+        ["id=identifierId", "id"],
+        ["name=identifier", "name"],
+        ["css=#identifierId", "css:finder"],
+        ["xpath=//input[@id='identifierId']", "xpath:attributes"],
+        ["xpath=//div[@id='view_container']/div/div/div[2]/div/div/div/form/span/section/div/div/div/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "ca63a68a-0f28-421b-85ff-3dd40bc8f2f0",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "name=password",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9c37da38-355e-433b-bbc8-e10a6d40ce95",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#password .whsOnd", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='password']/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/div/input", "xpath:position"]
+      ],
+      "value": "Dat09011995!"
+    }, {
+      "id": "7316857f-29ff-475a-9143-185298653134",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#password .whsOnd", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='password']/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "1346c548-fa69-4e81-a9d6-54dd8d210f7e",
+      "comment": "",
+      "command": "click",
+      "target": "id=app-03e8643328913682",
+      "targets": [
+        ["id=app-03e8643328913682", "id"],
+        ["css=#app-03e8643328913682", "css:finder"],
+        ["xpath=//portal-application[@id='app-03e8643328913682']", "xpath:attributes"],
+        ["xpath=//portal-application", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e585e37d-f4c3-4cc1-a51d-b7d0ba5708f8",
+      "comment": "",
+      "command": "click",
+      "target": "css=#ins-7f9a6736930a3bd7 .instance-block",
+      "targets": [
+        ["css=#ins-7f9a6736930a3bd7 .instance-block", "css:finder"],
+        ["xpath=//portal-instance[@id='ins-7f9a6736930a3bd7']/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[4]/portal-instance/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7655165b-3db1-417c-beaa-4de863a07cef",
+      "comment": "",
+      "command": "click",
+      "target": "id=temp-credentials-button",
+      "targets": [
+        ["id=temp-credentials-button", "id"],
+        ["linkText=Command line or programmatic access", "linkText"],
+        ["css=#temp-credentials-button", "css:finder"],
+        ["xpath=//a[contains(text(),'Command line or programmatic access')]", "xpath:link"],
+        ["xpath=//a[@id='temp-credentials-button']", "xpath:attributes"],
+        ["xpath=//portal-profile[@id='p-29236101a4886b8c']/span/span/span[2]/a", "xpath:idRelative"],
+        ["xpath=//span[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Command line or programmatic access')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bacea0ff-466f-44fb-9a2a-89d4a259b7b9",
+      "comment": "",
+      "command": "click",
+      "target": "id=hover-copy-env",
+      "targets": [
+        ["id=hover-copy-env", "id"],
+        ["css=#hover-copy-env", "css:finder"],
+        ["xpath=//hover-to-copy[@id='hover-copy-env']", "xpath:attributes"],
+        ["xpath=//div[@id='cli-cred-file-code']/hover-to-copy", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div[2]/hover-to-copy", "xpath:position"],
+        ["xpath=//hover-to-copy[contains(.,'Click to copy this text')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "94738dd1-5774-4047-9a1d-751486822743",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["33f4532d-b15f-4cba-a695-1e09c446008a"]
+  }],
+  "urls": ["https://accounts.google.com/"],
+  "plugins": []
+}

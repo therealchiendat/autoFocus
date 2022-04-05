@@ -1,0 +1,3 @@
+capabilities:
+  browserName: "chrome"
+  goog:chromeOptions.args=[–user-data-dir='~/Library/Application Support/Google/Chrome' profile-directory='Default' --allow-running-insecure-content]
