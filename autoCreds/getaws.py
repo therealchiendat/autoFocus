@@ -5,7 +5,6 @@
 # Department: R&D
 # Purpose: AWS SSO Credential Scrape
 # Date: 2021/12/15
-# Last Updated: 2022/06/08
 # ===========================================================
 
 import selenium
@@ -20,8 +19,6 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 
 import json
 with open('secrets.json','r') as f:
@@ -33,7 +30,14 @@ r = requests.get('https://' + 'introhivesso.awsapps.com/start#/')
 login_url = 'https://introhivesso.awsapps.com/start#/'
 
 # WebDriver Path for System
-browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+if platform.system() == ('Windows'):
+    browser = webdriver.Chrome("C:\Program Files (x86)\Google\Chrome\chromedriver.exe")
+elif platform.system() == ('Linux'):
+    browser = webdriver.Chrome(executable_path='/home/chiendat/Drivers/Google/Chrome/chromedriver')
+elif platform.system() == ('Darwin'):
+    browser = webdriver.Chrome(executable_path='/Users/chiendat/Work/RealWork/devByMe/Driver/chromedriver')
+else:
+    print("Are you sure you have the Selenium Webdriver installed in the correct path?")
 
 # Parent URL
 browser.get(login_url)
