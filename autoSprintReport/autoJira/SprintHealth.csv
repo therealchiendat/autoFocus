@@ -1,0 +1,18 @@
+Status,Issue_Type,Story_Points
+Code Review,Story,6.0
+Done,Bug,1.0
+Done,Story,6.0
+In Progress,Spike,3.0
+In Progress,Story,5.0
+Testing,Task,2.0
+To Do,Spike,2.0
+
+Sprint Goal:,- Wrap up similar terms and QB feedbacks - Start cloning Dark Web service
+
+
+Total Estimated Story Points:,25.0
+Completed Story Points (Done + Won't Do):,7.0
+Completion Rate:,28
+Total Defects:,7
+Defect Rate:,1.75
+Support Percentage:,11.54

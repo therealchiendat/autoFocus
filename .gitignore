@@ -1,0 +1,4 @@
+venv
+.autoJiraProfile
+credentials.json
+storage.json
