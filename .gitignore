@@ -1,4 +1,5 @@
 venv
+*.csv
 .autoJiraProfile
 credentials.json
 storage.json

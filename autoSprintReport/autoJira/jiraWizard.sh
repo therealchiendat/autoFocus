@@ -2,28 +2,6 @@
 
 script_name="jiraWizard.sh"
 
-# Get the Python version from the terminal args or prompt the user for input
-# if [ $# -eq 0 ]; then
-#     echo "Please enter the Python version (Version in 'python --version' will be used if empty):"
-#     read -r python_version
-
-#     # If no input is provided, set the Python to current version of python
-#     if [ -z "$python_version" ]; then
-#         # Get the version of Python installed on the system
-#         python_version=$(python --version 2>&1)
-
-#         # Extract the major and minor version numbers
-#         major_version=$(echo $python_version | cut -d' ' -f2 | cut -d'.' -f1)
-#         minor_version=$(echo $python_version | cut -d' ' -f2 | cut -d'.' -f2)
-#         python_command="python${major_version}.${minor_version}"
-#     else
-#         python_command="python${python_version}"
-#     fi
-# else
-#     python_version="$1"
-#     python_command="python${python_version}"
-# fi
-
 echo "Current Python version is: $(python --version)"
 # Get the version of Python installed on the system
 python_version=$(python --version 2>&1)

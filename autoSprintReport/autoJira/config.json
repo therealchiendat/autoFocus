@@ -5,55 +5,9 @@
   "total_support_points": 13,
   "total_developers": 2,
   "planning_increment": "2024.3",
-  "epic_commitments": {
-      "Keyword List 1:1": {
-        "epic": "SE-263",
-        "points": 10
-      },
-      "Query Builder Internal Feedback": {
-        "epic": "SE-201",
-        "points": 15
-      },
-      "Integrate Deep Web: Add Telegram as a Channel to Query Builder": {
-        "epic": "SE-189",
-        "points": 5
-      },
-      "Integrate Deep Web: Add 'Open Web' as a Channel to Query Builder": {
-        "epic": "SE-192",
-        "points": 25
-      },
-      "Integrate Deep Web: Add 'Deep & Dark Web' as a Channel to Query Builder": {
-        "epic": "SE-231",
-        "points": 25
-      },
-      "[SPIKE] Editing in Live View Spike (quality)": {
-        "epic": "SE-231",
-        "points": 25
-      },
-      "Deduplication Monitoring (Quality)": {
-        "epic": "",
-        "points": 25
-      },
-      "Support": {
-        "epic": "",
-        "points": 13
-      },
-      "Revenue": {
-        "epic": "",
-        "points": 6
-      },
-      "Technical Debt": {
-        "epic": "",
-        "points": 13
-      },
-      "Quality": {
-        "epic": "",
-        "points": 13
-      }
-  },
   "jql_queries": [
     "project = Selene AND Sprint in openSprints() AND Sprint not in futureSprints() ORDER BY created ASC",
-    "project = Selene AND status not in (\"Done\", \"Won't Do\") AND labels IN (\"defect\") AND created <= endOfDay(-14) order by created DESC",
+    "project = Selene AND type = Bug AND status not in (\"Done\", \"Won't Do\") AND labels IN (\"defect\", \"jira_escalated\") AND created <= endOfDay(-14) order by created DESC",
     "project = Selene AND \"Planning Increment[Dropdown]\"=2024.3 AND labels = jira_escalated AND (status = \"Done\" OR status = \"WON'T DO\") ORDER BY created DESC"
   ]
 }

@@ -30,14 +30,14 @@ def parse_date_from_filename(name):
 
 # Search for the presentation with the closest date in the past
 rsp = DRIVE.files().list(
-    q="mimeType='application/vnd.google-apps.presentation' and name contains 'Sprint Closing Report 08-22-24 [Test file not real]'",
+    q="mimeType='application/vnd.google-apps.presentation' and name contains 'Sprint Closing Report'",
     fields="files(id, name)"
 ).execute()['files']
 
 # Find the file with the closest date in the past or today
 closest_file = None
 closest_date = None
-today = datetime.datetime.today()
+today = datetime.datetime(2024,8,28)
 
 for file in rsp:
     file_date = parse_date_from_filename(file['name'])
@@ -74,17 +74,23 @@ def find_slide_with_text(presentation_id, search_text):
 if closest_file:
     presentation_id = closest_file['id']
     print(f"** Found presentation: {closest_file['name']} **")
+    # Confirm that we want to use this presentation
+    confirm = input("Do you want to use this presentation? (y/n): ")
+    if confirm.lower() != 'y':
+        print("Exiting...")
+        exit()
 
+    # Ask the user to see if there were any misses in this sprint
+    misses = input("Were there any misses this sprint? [text]: ")
+    # Ask the user to see if there were any challenges this sprint
+    challenges = input("Were there any challenges this sprint? [text]: ")
     # Find slide with text "Selene"
-    search_text = "SELENE"
+    search_text = "Selene"
     slide_index = find_slide_with_text(presentation_id, search_text)
-
     if slide_index is not None:
         print(f"**Found the target slide at index: {slide_index}**")
         # Now you can use this slide_index in your subsequent operations
         slide_id = SLIDES.presentations().get(presentationId=presentation_id).execute()['slides'][slide_index]['objectId']
-        
-        # Your existing code to replace text goes here...
         
     else:
         print("**Could not find a slide containing the specified text.**")
@@ -116,12 +122,27 @@ if closest_file:
     defect_rate = data.get("Defect Rate:", "N/A")
     support_percentage = data.get("Support Percentage:", "N/A")
 
+    # Ask user to see if they want to replace the text
+    print(f"Sprint Goal: {sprint_goal}")
+    print(f"Completion Rate: {completion_rate}")
+    print(f"Defect Rate: {defect_rate}")
+    print(f"Support Percentage: {support_percentage}")
+    print(f"Challenges: {challenges}") 
+    print(f"Misses: {misses}")
+    confirm = input("Do you want to replace the text in the presentation? (y/n): ")
+    if confirm.lower() != 'y':
+        print("Exiting...")
+        exit()
+
     reqs = [
     {'replaceAllText': { 'containsText': {'text': '{{sprint_goal}}'}, 'replaceText': sprint_goal }},
     {'replaceAllText': { 'containsText': {'text': '{{completion_rate}}'}, 'replaceText': f"{completion_rate}%" }},
     {'replaceAllText': { 'containsText': {'text': '{{defect_rate}}'}, 'replaceText': f"{defect_rate}" }},
     {'replaceAllText': { 'containsText': {'text': '{{support_percentage}}'}, 'replaceText': f"{support_percentage}%" }},
-]
+    {'replaceAllText': { 'containsText': {'text': '{{challenges}}'}, 'replaceText': challenges if challenges else "N/A" }},
+    {'replaceAllText': { 'containsText': {'text': '{{misses}}'}, 'replaceText': misses if misses else "N/A" }}
+    ]
+
     SLIDES.presentations().batchUpdate(body={'requests': reqs}, presentationId=presentation_id).execute()
     print('** Done! **')
 else:
